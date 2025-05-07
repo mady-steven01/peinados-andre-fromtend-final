@@ -1,4 +1,4 @@
-import { Category } from "./category";
+import { Catego } from "././estilos
 
 export interface Product {
   _id?: string;

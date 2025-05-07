@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Response } from '../interfaces/response';
-import { Category } from '../interfaces/category';
+import { Category } from '../interfaces/estilos';
 import { Observable } from 'rxjs';
 
 @Injectable({
