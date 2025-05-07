@@ -2,7 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../../../services/product.service';
-import { CategoryService } from '../../../../services/category.service';
+import { CategoryService } from '../../../../services/styles.service';
 import { Router } from '@angular/router';
 
 @Component({

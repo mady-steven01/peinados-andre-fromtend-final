@@ -4,7 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from '../../../../services/category.service';
 import { Response } from '../../../../interfaces/response';
-import { Category } from '../../../../interfaces/estilos';
+import { Styles } from '../../../../interfaces/styles';
 
 @Component({
   selector: 'app-category-edit',
@@ -42,7 +42,7 @@ export class CategoryEditComponent {
     if ( categoryId ) {
 
       this.categoryService.getCategoryById( categoryId ).subscribe({
-        next: ( data: Response<Category> ) => {
+        next: ( data: Response<Styles> ) => {
           console.log( data );
 
           // Establece nuevos valores para el formulario

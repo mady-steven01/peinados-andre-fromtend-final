@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Response } from '../interfaces/response';
 import { Styles } from '../interfaces/styles';
+
 import { Observable } from 'rxjs';
 
 @Injectable({

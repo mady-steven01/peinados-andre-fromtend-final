@@ -6,7 +6,7 @@ import { CategoryService } from '../../../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Response } from '../../../../interfaces/response';
-import { Category } from '../../../../interfaces/estilos';
+import { Styles } from '../../../../interfaces/styles';
 import { Product } from '../../../../interfaces/product';
 
 @Component({
@@ -18,7 +18,7 @@ import { Product } from '../../../../interfaces/product';
 export class ProductEditComponent {
   /** Atributos */
   formData!: FormGroup;
-  categories!: Array<Category>;
+  categories!: Array<Styles>;
   productId!: string;
 
   constructor(
@@ -78,7 +78,7 @@ export class ProductEditComponent {
             description: data?.data?.description,
             price: data?.data?.price,
             urlImage: data?.data?.urlImage,
-            category: data?.data?.category,
+            category: data?.data?.styles,
             state: data?.data?.state,
             // TODO: userId guarda el usuario que lo creó. Validar crear un atributo para saber el userId de quien lo modificó
           });

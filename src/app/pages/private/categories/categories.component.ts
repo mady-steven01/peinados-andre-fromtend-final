@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../../services/category.service';
-import { Category } from '../../../interfaces/estilos';
+import { Styles} from '../../../interfaces/styles';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent {
-  categories: Category[] = [];
+  categories: Styles[] = [];
   isLoading: boolean = true;
 
   constructor( private categoryService: CategoryService ) {}
