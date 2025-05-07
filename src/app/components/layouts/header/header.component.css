@@ -6,3 +6,38 @@
 .active {
     background-color: pink;
 }
+
+nav {
+    background-color: #ffe6e6; /* pale red */
+    max-height: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.main-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    margin-right: 1rem;
+    list-style: none; /* ensure no list marker */
+}
+
+.main-menu li a {
+    color: red;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.main-menu li a:hover,
+.main-menu li a.active {
+    background-color: #ffcccc;
+    color: darkred;
+}

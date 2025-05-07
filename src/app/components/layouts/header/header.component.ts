@@ -6,7 +6,7 @@ import { AuthService } from '../../../services/auth.service';
   selector: 'app-header',
   imports: [ RouterLink, RouterLinkActive ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 

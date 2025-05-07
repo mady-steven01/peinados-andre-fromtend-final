@@ -7,9 +7,14 @@ import { RouterLink } from '@angular/router';
   selector: 'app-products',
   imports: [ RouterLink ],
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
+  view: string = 'products';
+
+  setView(viewName: string) {
+    this.view = viewName;
+  }
   products: Product[] = [];
   isLoading: boolean = true;
 

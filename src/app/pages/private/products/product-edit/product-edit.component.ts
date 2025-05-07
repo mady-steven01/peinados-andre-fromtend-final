@@ -6,7 +6,7 @@ import { CategoryService } from '../../../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Response } from '../../../../interfaces/response';
-import { Category } from '../../../../interfaces/category';
+import { Category } from '../../../../interfaces/styles';
 import { Product } from '../../../../interfaces/product';
 
 @Component({

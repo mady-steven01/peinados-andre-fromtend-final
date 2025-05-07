@@ -4,7 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from '../../../../services/category.service';
 import { Response } from '../../../../interfaces/response';
-import { Category } from '../../../../interfaces/category';
+import { Category } from '../../../../interfaces/styles';
 
 @Component({
   selector: 'app-category-edit',

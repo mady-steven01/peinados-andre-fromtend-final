@@ -1,6 +1,6 @@
 <nav>
     <a href="#">
-        <img src="assets/images/site-logo.jpg" alt="Site Logp: Restaurant Finder" class="site-logo">
+<img src="assets/images/site-logo.jpg" alt="Peinados Afro Logo" class="site-logo">
     </a>
     <ul class="main-menu">
         <li><a routerLink="dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a></li>
@@ -18,9 +18,9 @@
           </ul>
       </li>
         <li>
-            <a [routerLink]="[ 'dashboard', 'categories' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Categories</a>
+            <a [routerLink]="[ 'dashboard', 'categories' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Styles</a>
             <ul class="sub-menu categories-menu">
-                <li><a [routerLink]="[ 'dashboard', 'category', 'new' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Category</a></li>
+                <li><a [routerLink]="[ 'dashboard', 'category', 'new' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Style</a></li>
             </ul>
         </li>
         <li><a routerLink="credits" routerLinkActive="active">Credits</a></li>
@@ -29,7 +29,5 @@
         <li><a href="#" (click)="logout( $event )">Logout</a></li>
     </ul>
 
-    @if( user ) {
-      <p>Hello, {{user.name}} <small>(role: {{user.role}})</small></p>
-    }
+    <p *ngIf="user">Hello, {{user?.name}} <small>(role: {{user?.role}})</small></p>
 </nav>
