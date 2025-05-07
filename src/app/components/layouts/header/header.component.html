@@ -1,6 +1,6 @@
 <nav>
     <a href="#">
-<img src="assets/images/site-logo.jpg" alt="Peinados Afro Logo" class="site-logo">
+<img src="assets/images/site-logo.jpg" alt="Peinados Afro Andre" class="site-logo">
     </a>
     <ul class="main-menu">
         <li><a routerLink="dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a></li>
@@ -29,5 +29,4 @@
         <li><a href="#" (click)="logout( $event )">Logout</a></li>
     </ul>
 
-    <p *ngIf="user">Hello, {{user?.name}} <small>(role: {{user?.role}})</small></p>
 </nav>
