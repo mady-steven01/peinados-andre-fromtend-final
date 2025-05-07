@@ -1,0 +1,50 @@
+<h1>User list</h1>
+
+@if ( isLoading ) {
+  <div>Loading users...</div>
+} @else {
+    @if ( users.length == 0 ) {
+      <div class="no-data">There are no registered users. Only you.</div>
+    } @else {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>User image</th>
+            <th>User name</th>
+            <th>Username</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for ( userItem of users; track userItem._id ) {
+            <!-- TODO: Bloquear el acceso del usuario actual a eliminarse -->
+            <tr>
+              <td>
+                @if ( ! userItem?.urlImage ) {
+                  <img src="assets/images/no-avatar-available.webp" class="image-avatar" alt="No image available" />
+                }
+                @else {
+                  <img [src]="userItem.urlImage" class="image-avatar" [alt]="userItem.name" />
+                }
+
+              </td>
+              <td>
+                <div class="name">{{ userItem.name }}</div>
+                <div class="state">{{ userItem.role }}</div>
+              </td>
+              <td>
+                <div class="category">{{ userItem.username }}</div>
+                <div class="state">{{ userItem.state ? 'Available' : 'Not available' }}</div>
+              </td>
+              <td>
+                <div class="actions">
+                  <a [routerLink]="'/dashboard/user/edit/' + (userItem._id ?? '')" class="btn btn-primary">Edit</a>
+                  <button (click)="onRemove( userItem._id ?? '' )" class="btn btn-warning">Delete</button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+}

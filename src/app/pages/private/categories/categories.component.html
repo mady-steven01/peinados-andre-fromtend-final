@@ -1,0 +1,33 @@
+<h1>Category list</h1>
+
+@if ( isLoading ) {
+  <div>Loading products...</div>
+} @else {
+    @if (categories.length === 0) {
+      <div class="no-data">There are no registered categories.</div>
+    } @else {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Category name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (category of categories; track category._id) {
+            <tr>
+              <td>{{ category.name }}</td>
+              <td>{{ category.description }}</td>
+              <td>
+                <div class="actions">
+                  <a [routerLink]="'/dashboard/category/edit/' + (category._id ?? '')" class="btn btn-primary">Edit</a>
+                  <button (click)="onRemove( category._id ?? '' )" class="btn btn-warning">Delete</button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+}

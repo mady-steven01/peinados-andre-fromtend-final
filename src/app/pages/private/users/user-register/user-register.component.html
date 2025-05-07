@@ -1,0 +1,122 @@
+<form
+    class="form form-login"
+    [formGroup]="formData"
+    (ngSubmit)="onSubmit()"
+>
+    <h1>Register User</h1>
+
+    <div class="form-container">
+        <!-- Este elemento contiene el formulario  -->
+        <div class="form-content">
+            <div class="field">
+                <label for="name">Name *</label>
+                <input type="text" formControlName="name" id="name"  placeholder="Ex: Manuela Gomez" />
+                <div class="error">
+                    @if( this.formData.get( 'name' )?.invalid && ( this.formData.get( 'name' )?.dirty || this.formData.get( 'name' )?.touched ) ) {
+                        @if( this.formData.get( 'name' )?.errors?.['required'] ) {
+                            <span>Name is required</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+                <label for="username">Username *</label>
+                <input type="text" formControlName="username" id="username"  placeholder="Ex: manuela@email.co" />
+                <div class="error">
+                    @if( this.formData.get( 'username' )?.invalid && ( this.formData.get( 'username' )?.dirty || this.formData.get( 'username' )?.touched ) ) {
+                        @if( this.formData.get( 'username' )?.errors?.['required'] ) {
+                            <span>Email is required</span>
+                        }
+                        @if( this.formData.get( 'username' )?.errors?.[ 'email'] ) {
+                            <span>Invalid email format</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password *</label>
+                <input type="password" formControlName="password" id="password" placeholder="Ex: **********" />
+                <div class="error">
+                    @if( this.formData.get( 'password' )?.invalid && ( this.formData.get( 'password' )?.dirty || this.formData.get( 'password' )?.touched ) ) {
+                        @if( this.formData.get( 'password' )?.errors?.[ 'required' ] ) {
+                            <span>Password is required</span>
+                        }
+                        @if( this.formData.get( 'password' )?.errors?.[ 'minlength' ] ) {
+                            <span>Minimum password length is 6 characters</span>
+                        }
+                        @if( this.formData.get( 'password' )?.errors?.[ 'maxlength' ] ) {
+                            <span>Maximum password length is 12 characters</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+                <label for="role">Role *</label>
+                <!-- <input type="password" formControlName="role" id="role" placeholder="Ej: 123456789" /> -->
+                <select formControlName="role" id="role">
+                    <option value="">Selected...</option>
+                    @for ( role of roles; track $index ) {
+                        <option [value]="role">{{ role }}</option>
+                    }
+                </select>
+                <div class="error">
+                    @if( this.formData.get( 'role' )?.invalid && ( this.formData.get( 'role' )?.dirty || this.formData.get( 'role' )?.touched ) ) {
+                        @if( this.formData.get( 'role' )?.errors?.[ 'required' ] ) {
+                            <span>Selecting a role is required</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+              <label>State *</label>
+              <div class="state">
+                <input type="radio" formControlName="state" id="stateEnabled" [value]="true" />
+                <label for="stateEnabled">Enabled</label>
+                <input type="radio" formControlName="state" id="stateDisabled" [value]="false" />
+                <label for="stateDisabled">Disabled</label>
+              </div>
+              <div class="error">
+                @if( this.formData.get( 'state' )?.invalid && ( this.formData.get( 'state' )?.dirty || this.formData.get( 'state' )?.touched ) ) {
+                    @if( this.formData.get( 'state' )?.errors?.['required'] ) {
+                        <span>Selecting a state is required</span>
+                    }
+                }
+              </div>
+            </div>
+            <div class="field">
+                <button type="submit" [disabled]="this.formData.invalid">Register User</button>
+            </div>
+        </div>
+
+        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
+        <div class="form-errors">
+            <div class="title">Form fields error</div>
+            <div class="field">
+                <label for="name">Name</label>
+                <code class="error">{{ formData.get( 'name' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="username">Username</label>
+                <code class="error">{{ formData.get( 'username' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <code class="error">{{ formData.get( 'password' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="role">Role</label>
+                <code class="error">{{ formData.get( 'role' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+              <label for="state">State *</label>
+              <code class="error">{{ formData.value.state }}</code>
+            </div>
+            <div class="field">
+                <label for="username">Valid form</label>
+                <code class="error">{{ formData.valid }}</code>
+            </div>
+        </div>
+    </div>
+
+</form>
+

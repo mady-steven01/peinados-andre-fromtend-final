@@ -1,0 +1,8 @@
+.site-logo {
+    max-width: 6rem;
+    width: 100%;
+}
+
+.active {
+    background-color: pink;
+}

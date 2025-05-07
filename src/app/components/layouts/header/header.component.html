@@ -1,0 +1,35 @@
+<nav>
+    <a href="#">
+        <img src="assets/images/site-logo.jpg" alt="Site Logp: Restaurant Finder" class="site-logo">
+    </a>
+    <ul class="main-menu">
+        <li><a routerLink="dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a></li>
+        <!-- <li><a routerLink="dashboard/users" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Users</a></li> -->
+        <li>
+            <a [routerLink]="[ 'dashboard', 'users' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Users</a>
+            <ul class="sub-menu users-menu">
+                <li><a [routerLink]="[ 'dashboard', 'user', 'new' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New User</a></li>
+            </ul>
+        </li>
+        <li>
+          <a [routerLink]="[ 'dashboard', 'products' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Products</a>
+          <ul class="sub-menu categories-menu">
+              <li><a [routerLink]="[ 'dashboard', 'product', 'new' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Product</a></li>
+          </ul>
+      </li>
+        <li>
+            <a [routerLink]="[ 'dashboard', 'categories' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Categories</a>
+            <ul class="sub-menu categories-menu">
+                <li><a [routerLink]="[ 'dashboard', 'category', 'new' ]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Category</a></li>
+            </ul>
+        </li>
+        <li><a routerLink="credits" routerLinkActive="active">Credits</a></li>
+        <li><a routerLink="login" routerLinkActive="active">Login</a></li>
+        <li><a routerLink="register" routerLinkActive="active">Register</a></li>
+        <li><a href="#" (click)="logout( $event )">Logout</a></li>
+    </ul>
+
+    @if( user ) {
+      <p>Hello, {{user.name}} <small>(role: {{user.role}})</small></p>
+    }
+</nav>

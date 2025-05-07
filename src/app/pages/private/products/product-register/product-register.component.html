@@ -1,0 +1,114 @@
+<form
+    class="form form-login"
+    [formGroup]="formData"
+    (ngSubmit)="onSubmit()"
+>
+    <h1>Register Product</h1>
+
+    <div class="form-container">
+        <!-- Este elemento contiene el formulario  -->
+        <div class="form-content">
+            <div class="field">
+                <label for="name">Product Name *</label>
+                <input type="text" formControlName="name" id="name"  placeholder="Ex: Spaghetti carbonara" />
+                <div class="error">
+                    @if( this.formData.get( 'name' )?.invalid && ( this.formData.get( 'name' )?.dirty || this.formData.get( 'name' )?.touched ) ) {
+                        @if( this.formData.get( 'name' )?.errors?.['required'] ) {
+                            <span>Product name is required</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+              <label for="description">Description</label>
+              <textarea formControlName="description" id="description"  placeholder="Ej: Brief description of the product"></textarea>
+              <div class="error"></div>
+            </div>
+            <div class="field">
+              <label for="price">Price *</label>
+              <input type="number" formControlName="price" id="price"  placeholder="Ex: 30" />
+              <div class="error">
+                  @if( this.formData.get( 'price' )?.invalid && ( this.formData.get( 'price' )?.dirty || this.formData.get( 'price' )?.touched ) ) {
+                      @if( this.formData.get( 'price' )?.errors?.['required'] ) {
+                          <span>Product price is required</span>
+                      }
+                      @if ( this.formData.get( 'price' )?.errors?.['min'] ) {
+                        <span>The price of the product cannot be less than zero</span>
+                      }
+                  }
+              </div>
+            </div>
+            <div class="field">
+              <label for="urlImage">Url Image</label>
+              <input type="text" formControlName="urlImage" id="urlImage"  placeholder="Ex: https://i.blogs.es/spaguetis_carbonara.jpg" />
+              <div class="error"></div>
+            </div>
+            <div class="field">
+              <label for="category">Category *</label>
+              <select formControlName="category" id="category">
+                <option value="">Select...</option>
+                @for ( category of categories; track $index) {
+                  <option [value]="category._id">{{ category.name }}</option>
+                }
+              </select>
+              <div class="error">
+                  @if( this.formData.get( 'category' )?.invalid && ( this.formData.get( 'category' )?.dirty || this.formData.get( 'category' )?.touched ) ) {
+                      @if( this.formData.get( 'category' )?.errors?.['required'] ) {
+                          <span>Selecting a category is required</span>
+                      }
+                  }
+              </div>
+            </div>
+            <div class="field">
+              <label>State *</label>
+              <div class="state">
+                <input type="radio" formControlName="state" id="stateAvailable" [value]="true" />
+                <label for="stateAvailable">Available</label>
+                <input type="radio" formControlName="state" id="stateNotAvailable" [value]="false" />
+                <label for="stateNotAvailable">NotAvailable</label>
+              </div>
+              <div class="error">
+                @if( this.formData.get( 'state' )?.invalid && ( this.formData.get( 'state' )?.dirty || this.formData.get( 'state' )?.touched ) ) {
+                    @if( this.formData.get( 'state' )?.errors?.['required'] ) {
+                        <span>Selecting a state is required</span>
+                    }
+                }
+              </div>
+            </div>
+            <div class="field">
+                <button type="submit" [disabled]="this.formData.invalid">Register Product</button>
+            </div>
+        </div>
+
+        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
+        <div class="form-errors">
+            <div class="title">Form fields error</div>
+            <div class="field">
+                <label for="name">Name</label>
+                <code class="error">{{ formData.get( 'name' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+              <label for="name">Description</label>
+              <code class="error">Has not validations</code>
+            </div>
+            <div class="field">
+              <label for="price">Price</label>
+              <code class="error">{{ formData.get( 'price' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+              <label for="urlImage">Url Image</label>
+              <code class="error">Has not validations</code>
+            </div>
+            <div class="field">
+              <label for="category">Category *</label>
+              <code class="error">{{ formData.get( 'category' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="username">Valid form</label>
+                <code class="error">{{ formData.valid }}</code>
+            </div>
+        </div>
+    </div>
+
+</form>
+

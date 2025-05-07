@@ -1,0 +1,51 @@
+<h1>Product list</h1>
+
+@if ( isLoading ) {
+  <div>Loading products...</div>
+} @else {
+    @if (products.length === 0) {
+      <div class="no-data">There are no registered products.</div>
+    } @else {
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Product image</th>
+            <th>Product name</th>
+            <th>Description</th>
+            <th>More info</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for ( product of products; track product._id ) {
+            <tr>
+              <td>
+                @if ( ! product?.urlImage ) {
+                  <img src="assets/images/no-image-available.jpg" class="image-avatar" alt="No image available" />
+                }
+                @else {
+                  <img [src]="product.urlImage" class="image-avatar" [alt]="product.name" />
+                }
+
+              </td>
+              <td>
+                <div class="name">{{ product.name }}</div>
+                <div class="state">{{ product.state ? 'Available' : 'Not available' }}</div>
+              </td>
+              <td>{{ product.description }}</td>
+              <td>
+                <div class="category">{{ product.category.name || 'No category'  }}</div>
+                <div class="price">{{ product.price }}</div>
+              </td>
+              <td>
+                <div class="actions">
+                  <a [routerLink]="'/dashboard/product/edit/' + (product._id ?? '')" class="btn btn-primary">Edit</a>
+                  <button (click)="onRemove( product._id ?? '' )" class="btn btn-warning">Delete</button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+}

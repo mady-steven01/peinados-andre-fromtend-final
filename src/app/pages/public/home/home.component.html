@@ -1,0 +1,25 @@
+<section class="cards-container">
+  <div class="cards">
+    @for ( product of products; track $index ) {
+      <div class="card">
+        <div class="card-image">
+          @if ( ! product?.urlImage ) {
+            <img src="assets/images/no-image-available.jpg" class="image" alt="No image available" />
+          }
+          @else {
+            <img [src]="product.urlImage" class="image" [alt]="product.name" />
+          }
+        </div>
+        <div class="card-info">
+          <h2 class="card-title">{{ product.name }}</h2>
+          <small class="card-category">{{ product.category.name }}</small>
+          <p class="card-intro">{{ product.description }}</p>
+        </div>
+        <div class="card-detail">
+          <p class="card-price">{{ product.price | currency }}</p>
+          <button class="btn btn-primary">Agregar</button>
+        </div>
+      </div>
+    }
+  </div>
+</section>

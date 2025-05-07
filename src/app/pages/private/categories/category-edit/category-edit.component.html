@@ -1,0 +1,50 @@
+<form
+    class="form form-category"
+    [formGroup]="formData"
+    (ngSubmit)="onSubmit()"
+>
+    <h1>Edit Category</h1>
+
+    <div class="form-container">
+        <!-- Este elemento contiene el formulario  -->
+        <div class="form-content">
+            <div class="field">
+                <label for="name">Name Category *</label>
+                <input type="text" formControlName="name" id="name"  placeholder="Ex: Drinks" />
+                <div class="error">
+                    @if( this.formData.get( 'name' )?.invalid && ( this.formData.get( 'name' )?.dirty || this.formData.get( 'name' )?.touched ) ) {
+                        @if( this.formData.get( 'name' )?.errors?.['required'] ) {
+                            <span>Name category is required</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+                <label for="description">Description</label>
+                <textarea formControlName="description" id="description" placeholder="Ex: Describa detalle de categoria"></textarea>
+                <div class="error"></div>
+            </div>
+            <div class="field">
+                <button type="submit" [disabled]="this.formData.invalid">Edit Category</button>
+            </div>
+        </div>
+
+        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
+        <div class="form-errors">
+            <div class="title">Form fields error</div>
+            <div class="field">
+                <label for="username">Name Category</label>
+                <code class="error">{{ formData.get( 'name' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="password">Description</label>
+                <code class="error">Has not validations</code>
+            </div>
+            <div class="field">
+                <label for="username">Valid form</label>
+                <code class="error">{{ formData.valid }}</code>
+            </div>
+        </div>
+    </div>
+
+</form>

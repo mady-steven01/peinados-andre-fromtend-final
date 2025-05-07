@@ -1,0 +1,65 @@
+<form 
+    class="form form-login"
+    [formGroup]="formData"
+    (ngSubmit)="onSubmit()"
+>
+    <h1>Login</h1>
+
+    <div class="form-container">
+        <!-- Este elemento contiene el formulario  -->
+        <div class="form-content">
+            <div class="field">
+                <label for="username">Username *</label>
+                <input type="text" formControlName="username" id="username"  placeholder="Ej: manuela@correo.co" />
+                <div class="error">
+                    @if( this.formData.get( 'username' )?.invalid && ( this.formData.get( 'username' )?.dirty || this.formData.get( 'username' )?.touched ) ) {
+                        @if( this.formData.get( 'username' )?.errors?.['required'] ) {
+                            <span>El correo es obligatorio</span>
+                        }
+                        @if( this.formData.get( 'username' )?.errors?.[ 'email'] ) {
+                            <span>Formato de correo invalido</span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+                <label for="password">Password *</label>
+                <input type="password" formControlName="password" id="password" placeholder="Ej: 123456789" />
+                <div class="error">
+                    @if( this.formData.get( 'password' )?.invalid && ( this.formData.get( 'password' )?.dirty || this.formData.get( 'password' )?.touched ) ) {
+                        @if( this.formData.get( 'password' )?.errors?.[ 'required' ] ) {
+                            <span>La contraseña es obligatoria</span>
+                        }
+                        @if( this.formData.get( 'password' )?.errors?.[ 'minlength' ] ) {
+                            <span>La longitud minima de la contraseña es 6 caracteres </span>
+                        }
+                        @if( this.formData.get( 'password' )?.errors?.[ 'maxlength' ] ) {
+                            <span>La longitud máxima de la contraseña es 12 caracteres </span>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="field">
+                <button type="submit" [disabled]="this.formData.invalid">Login</button>
+            </div>
+        </div>
+
+        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
+        <div class="form-errors">
+            <div class="title">Form fields error</div>
+            <div class="field">
+                <label for="username">Username</label>
+                <code class="error">{{ formData.get( 'username' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <code class="error">{{ formData.get( 'password' )?.errors | json }}</code>
+            </div>
+            <div class="field">
+                <label for="username">Valid form</label>
+                <code class="error">{{ formData.valid }}</code>
+            </div>
+        </div>
+    </div>
+
+</form>
