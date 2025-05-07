@@ -1,4 +1,5 @@
 import { Styles  } from '.././interfaces/styles';
+
 export interface Product {
   _id?: string;
   name: string;

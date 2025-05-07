@@ -36,45 +36,14 @@
             <div class="field">
                 <label for="password">Password *</label>
                 <input type="password" formControlName="password" id="password" placeholder="Ej: *********" />
-                <div class="error">
-                    @if( this.formData.get( 'password' )?.invalid && ( this.formData.get( 'password' )?.dirty || this.formData.get( 'password' )?.touched ) ) {
-                        @if( this.formData.get( 'password' )?.errors?.[ 'required' ] ) {
-                            <span>Password is required</span>
-                        }
-                        @if( this.formData.get( 'password' )?.errors?.[ 'minlength' ] ) {
-                            <span>Minimum password length is 6 characters</span>
-                        }
-                        @if( this.formData.get( 'password' )?.errors?.[ 'maxlength' ] ) {
-                            <span>Maximum password length is 12 characters</span>
-                        }
-                    }
-                </div>
+               
             </div>
             <div class="field">
                 <button type="submit" [disabled]="this.formData.invalid">Register</button>
             </div>
         </div>
 
-        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
-        <div class="form-errors">
-            <div class="title">Form fields error</div>
-            <div class="field">
-                <label for="name">Name</label>
-                <code class="error">{{ formData.get( 'name' )?.errors | json }}</code>
-            </div>
-            <div class="field">
-                <label for="username">Username</label>
-                <code class="error">{{ formData.get( 'username' )?.errors | json }}</code>
-            </div>
-            <div class="field">
-                <label for="password">Password</label>
-                <code class="error">{{ formData.get( 'password' )?.errors | json }}</code>
-            </div>
-            <div class="field">
-                <label for="username">Valid form</label>
-                <code class="error">{{ formData.valid }}</code>
-            </div>
-        </div>
+       
     </div>
 
 </form>

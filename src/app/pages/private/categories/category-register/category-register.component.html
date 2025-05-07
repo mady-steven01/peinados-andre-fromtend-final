@@ -3,7 +3,7 @@
     [formGroup]="formData"
     (ngSubmit)="onSubmit()"
 >
-    <h1>Register Category</h1>
+    <h1>Register style </h1>
 
     <div class="form-container">
         <!-- Este elemento contiene el formulario  -->
@@ -29,22 +29,7 @@
             </div>
         </div>
 
-        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
-        <div class="form-errors">
-            <div class="title">Form fields error</div>
-            <div class="field">
-                <label for="username">Name Category</label>
-                <code class="error">{{ formData.get( 'name' )?.errors | json }}</code>
-            </div>
-            <div class="field">
-                <label for="password">Description</label>
-                <code class="error">Has not validations</code>
-            </div>
-            <div class="field">
-                <label for="username">Valid form</label>
-                <code class="error">{{ formData.valid }}</code>
-            </div>
-        </div>
+        
     </div>
 
 </form>

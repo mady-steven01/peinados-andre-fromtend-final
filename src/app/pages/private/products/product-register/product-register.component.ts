@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../../../services/product.service';
@@ -7,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-register',
-  imports: [ ReactiveFormsModule, JsonPipe ],
+  imports: [ ReactiveFormsModule ],
   templateUrl: './product-register.component.html',
   styleUrl: './product-register.component.css'
 })

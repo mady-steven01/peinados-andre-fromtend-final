@@ -1,25 +1,42 @@
-<section class="cards-container">
-  <div class="cards">
-    @for ( product of products; track $index ) {
-      <div class="card">
-        <div class="card-image">
-          @if ( ! product?.urlImage ) {
-            <img src="assets/images/no-image-available.jpg" class="image" alt="No image available" />
-          }
-          @else {
-            <img [src]="product.urlImage" class="image" [alt]="product.name" />
-          }
-        </div>
-        <div class="card-info">
-          <h2 class="card-title">{{ product.name }}</h2>
-          <small class="card-category">{{ product.styles.name }}</small>
-          <p class="card-intro">{{ product.description }}</p>
-        </div>
-        <div class="card-detail">
-          <p class="card-price">{{ product.price | currency }}</p>
-          <button class="btn btn-primary">Agregar</button>
-        </div>
-      </div>
-    }
-  </div>
-</section>
+<main>
+  <section class="bienvenida">
+    <h2>Bienvenid a Peinados Afro</h2>
+    <img src="assets/images/descarga.1.jpg" alt="Peinado afro natural" class="imagen">
+    <p>
+      En este espacio celebramos la belleza, historia y cultura del cabello afro. 
+      Aquí encontrarás inspiración, consejos y estilos para cuidar y lucir tu cabello con orgullo.
+    </p>
+  </section>
+
+  <section class="historia">
+    <h3>Historia del Cabello Afro</h3>
+    <img src="assets/images/descarga.2.jpg" alt="Historia del cabello afro" class="imagen">
+    <p>
+      El cabello afro ha sido símbolo de identidad, resistencia y orgullo cultural. 
+      Desde tiempos ancestrales en África hasta movimientos sociales modernos, 
+      los peinados afro han representado mucho más que moda: son expresión de raíces y libertad.
+    </p>
+  </section>
+
+  <section class="tipos-peinados">
+    <h3>Tipos de Peinados Afro</h3>
+    <img src="assets/images/descarga.3.jpg" alt="Tipos de peinados afro" class="imagen">
+    <ul>
+      <li>Afro natural</li>
+      <li>Trenzas africanas</li>
+      <li>Locks (rastas)</li>
+      <li>Twists (torsiones)</li>
+      <li>Bantu knots</li>
+      <li>Frohawk</li>
+    </ul>
+  </section>
+
+  <section class="cuidados">
+    <h3>Cuidados Básicos</h3>
+    <img src="assets/images/descarga.4.jpg" alt="Cuidados del cabello afro" class="imagen">
+    <p>
+      Hidratar tu cabello regularmente, evitar el calor excesivo y usar productos naturales son pasos esenciales
+      para mantener un cabello afro saludable. ¡Consulta nuestros consejos semanales!
+    </p>
+  </section>
+</main>

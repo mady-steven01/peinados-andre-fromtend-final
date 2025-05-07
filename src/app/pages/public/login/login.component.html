@@ -44,22 +44,7 @@
             </div>
         </div>
 
-        <!-- Este elemento solo es para visualizar los mensajes de error de los campos del formulario -->
-        <div class="form-errors">
-            <div class="title">Form fields error</div>
-            <div class="field">
-                <label for="username">Username</label>
-                <code class="error">{{ formData.get( 'username' )?.errors | json }}</code>
-            </div>
-            <div class="field">
-                <label for="password">Password</label>
-                <code class="error">{{ formData.get( 'password' )?.errors | json }}</code>
-            </div>
-            <div class="field">
-                <label for="username">Valid form</label>
-                <code class="error">{{ formData.valid }}</code>
-            </div>
-        </div>
+       
     </div>
 
 </form>

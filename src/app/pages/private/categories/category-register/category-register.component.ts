@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoryService } from '../../../../services/styles.service';
@@ -6,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-register',
-  imports: [ ReactiveFormsModule, JsonPipe ],
+  imports: [ ReactiveFormsModule ],
   templateUrl: './category-register.component.html',
   styleUrl: './category-register.component.css'
 })
